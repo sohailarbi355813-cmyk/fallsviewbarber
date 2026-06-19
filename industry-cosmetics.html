@@ -5,7 +5,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Styling Collection | INdustry CUTS — Men's Grooming Products</title>
   <meta name="description" content="INdustry CUTS presents our in-house styling collection — premium men's grooming products crafted for the modern man. Available exclusively at our St. Catharines salon."/>
-  <link rel="stylesheet" href="css/main.css" />
+    <!-- Tailwind & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Outfit"', '"Inter"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            stone: {
+              900: '#1c1917',
+              800: '#292524',
+              200: '#e7e5e4',
+              100: '#f5f5f4',
+            },
+            amber: {
+              700: '#b08d57',
+              800: '#927344',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer components {
+      .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg border border-amber-700 text-amber-700 hover:bg-amber-700 hover:text-zinc-900 transition-colors duration-300 uppercase tracking-widest text-xs font-semibold;
+      }
+      .nav-link {
+        @apply uppercase tracking-widest text-xs font-medium text-stone-400 hover:text-amber-700 transition-colors duration-200;
+      }
+      .section-padding {
+        @apply py-20 md:py-32 px-6 md:px-12 max-w-7xl mx-auto;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <!-- Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
@@ -16,177 +58,126 @@
   <meta property="og:image" content="images/hero-bg.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 </head>
-<body>
-<div class="cursor"></div><div class="cursor-ring"></div>
-<div id="scroll-progress"></div><div class="page-transition"></div>
-<button id="back-to-top"><i class="fa fa-arrow-up"></i></button>
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">IN<em>dustry</em> CUTS<small>Men's Grooming</small></a>
-    <ul class="nav-menu">
+<body class="bg-zinc-900 text-stone-200 font-sans antialiased overflow-x-hidden">
+
+
+
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-zinc-900/95 backdrop-blur-md border-b border-white/5 py-5 transition-all">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+    <a href="index.html" class="font-serif text-2xl font-medium tracking-wide text-stone-100 flex flex-col">
+      INdustry <span class="text-amber-700 italic inline">CUTS</span>
+      <span class="font-sans text-[0.55rem] tracking-[0.3em] text-stone-500 uppercase mt-1 font-semibold">Men's Grooming</span>
+    </a>
+    <ul class="hidden md:flex items-center gap-8">
       <li><a href="index.html" class="nav-link">Home</a></li>
       <li><a href="about-us.html" class="nav-link">About</a></li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">Services <i class="fa fa-chevron-down" style="font-size:0.5rem;"></i></a>
-        <div class="nav-dropdown">
-          <a href="hair-cutting.html">Men's Cuts</a><a href="hair-colouring.html">Colour & Texture</a>
-          <a href="esthetic-services.html">Beard & Grooming</a><a href="celebrations.html">Celebrations</a>
-        </div>
-      </li>
-      <li><a href="hair-products.html" class="nav-link">Products</a></li>
-      <li><a href="industry-cosmetics.html" class="nav-link active">Styling</a></li>
+      <li><a href="hair-cutting.html" class="nav-link">Services</a></li>
       <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
       <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
-    <a href="contact.html" class="nav-cta"><span>Book Now</span></a>
-    <button class="hamburger"><span></span><span></span><span></span></button>
+    <a href="contact.html" class="hidden md:inline-flex btn-primary">Book Now</a>
+    
+    <!-- Mobile Menu Button -->
+    <button class="md:hidden text-stone-200 p-2">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+    </button>
   </div>
 </nav>
-<div class="mobile-menu">
-  <div class="mobile-menu-links">
-    <a href="index.html">Home</a><a href="about-us.html">About</a>
-    <a href="hair-cutting.html">Men's Cuts</a><a href="hair-products.html">Products</a>
-    <a href="industry-cosmetics.html">Styling</a><a href="portfolio.html">Portfolio</a>
-    <a href="contact.html">Contact</a>
-  </div>
-  <div class="mobile-social">
-    <a href="https://www.instagram.com/industryhair_niagara/" target="_blank">Instagram</a>
-    <a href="https://www.tiktok.com/@industryhair_niagara" target="_blank">TikTok</a>
-  </div>
-</div>
 
-<section class="page-hero">
-  <div class="page-hero-bg" style="background-image:url('images/sections/products.png');"></div>
-  <div class="page-hero-overlay"></div>
-  <div class="container page-hero-content">
-    <span class="label">Exclusive Collection</span>
-    <h1>INdustry Styling</h1>
-  </div>
-</section>
+        <!-- Header -->
+        <section class="pt-40 pb-20 px-6 md:px-12 max-w-7xl mx-auto text-center">
+          <span class="block font-sans text-xs font-semibold tracking-[0.3em] uppercase text-amber-700 mb-6">Products</span>
+          <h1 class="font-serif text-5xl md:text-6xl text-stone-100 mb-8">INdustry <em class="italic text-amber-700">Styling.</em></h1>
+          <p class="text-stone-400 max-w-2xl mx-auto font-light leading-relaxed">
+            Our signature line of professional styling tools and accessories.
+          </p>
+        </section>
 
-<!-- Intro -->
-<section class="section-pad bg-1">
-  <div class="container">
-    <div class="section-header centered reveal">
-      <span class="label">Our Own Line</span>
-      <h2>Crafted for the Modern Man</h2>
-      <p>INdustry Styling is our in-house collection of premium men's grooming products — curated around the products our barbers and clients love most. High performance, easy to use, and built close to home in Canada.</p>
+        <!-- Image + Intro -->
+        <section class="py-20 bg-zinc-800/20 border-y border-white/5">
+          <div class="px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+            <img src="images/hero-bg.jpg" alt="Signature Line" class="w-full h-96 object-cover rounded-lg border border-white/10" />
+            <div>
+              <span class="block font-sans text-[0.6rem] uppercase tracking-widest text-amber-700 mb-4">Signature Line</span>
+              <h2 class="font-serif text-4xl text-stone-100 mb-6">Tools of the Trade.</h2>
+              <p class="text-stone-400 font-light leading-relaxed mb-8">
+                Achieve barbershop quality results at home with our custom-branded grooming tools, designed for durability and precision.
+              </p>
+              <a href="contact.html" class="btn-primary">Reserve Products</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- Product List -->
+        <section class="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+          <div class="text-center mb-16">
+            <h2 class="font-serif text-4xl text-stone-100">Featured Items</h2>
+            <p class="text-stone-500 text-sm mt-4">Available in-store only.</p>
+          </div>
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-zinc-800/30 border border-white/5 rounded-lg p-8 relative overflow-hidden">
+              <div class="absolute top-0 left-0 right-0 h-1 bg-amber-700"></div>
+              <h3 class="font-serif text-2xl text-stone-200 mb-2">Texture Comb</h3>
+              <p class="text-stone-400 text-sm font-light mb-8">Wide-tooth comb designed specifically for creating separation and volume.</p>
+              <div class="flex items-baseline gap-2 mb-8">
+                <span class="text-amber-700 font-serif text-3xl">$15</span>
+              </div>
+            </div>
+            
+            <div class="bg-zinc-800/30 border border-white/5 rounded-lg p-8 relative overflow-hidden">
+              
+              <h3 class="font-serif text-2xl text-stone-200 mb-2">Boar Bristle Brush</h3>
+              <p class="text-stone-400 text-sm font-light mb-8">Essential for training beard hair and distributing natural oils.</p>
+              <div class="flex items-baseline gap-2 mb-8">
+                <span class="text-amber-700 font-serif text-3xl">$35</span>
+              </div>
+            </div>
+            
+            <div class="bg-zinc-800/30 border border-white/5 rounded-lg p-8 relative overflow-hidden">
+              
+              <h3 class="font-serif text-2xl text-stone-200 mb-2">Travel Kit</h3>
+              <p class="text-stone-400 text-sm font-light mb-8">TSA-approved grooming essentials bundled in a premium leather washbag.</p>
+              <div class="flex items-baseline gap-2 mb-8">
+                <span class="text-amber-700 font-serif text-3xl">$65</span>
+              </div>
+            </div>
+            
+          </div>
+        </section>
+        
+<footer class="bg-[#12100f] border-t border-white/5 py-20 mt-20">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div class="col-span-1 md:col-span-1">
+      <div class="font-serif text-2xl font-medium tracking-wide text-stone-100 mb-4 flex flex-col">
+        INdustry <span class="text-amber-700 italic inline">CUTS</span>
+      </div>
+      <p class="text-stone-400 text-sm leading-relaxed mb-6">Niagara's premier barbershop. Precision cuts, expert grooming, and an authentic experience.</p>
+    </div>
+    
+    <div>
+      <h4 class="font-sans text-[0.6rem] font-semibold tracking-[0.2em] uppercase text-amber-700 mb-6">Navigate</h4>
+      <ul class="space-y-3 text-sm text-stone-400">
+        <li><a href="about-us.html" class="hover:text-stone-200 transition-colors">About Us</a></li>
+        <li><a href="hair-cutting.html" class="hover:text-stone-200 transition-colors">Services</a></li>
+        <li><a href="portfolio.html" class="hover:text-stone-200 transition-colors">Portfolio</a></li>
+        <li><a href="contact.html" class="hover:text-stone-200 transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 class="font-sans text-[0.6rem] font-semibold tracking-[0.2em] uppercase text-amber-700 mb-6">Visit Us</h4>
+      <ul class="space-y-3 text-sm text-stone-400">
+        <li><a href="mailto:info@industryhair.ca" class="hover:text-stone-200 transition-colors">info@industryhair.ca</a></li>
+        <li><a href="tel:9053975888" class="hover:text-stone-200 transition-colors">(905) 397-5888</a></li>
+        <li>215 Pelham Rd, St. Catharines</li>
+      </ul>
     </div>
   </div>
-</section>
-
-<!-- Product showcase -->
-<section class="section-pad bg-2">
-  <div class="container">
-    <div class="products-grid" data-stagger>
-      <div class="product-card">
-        <div class="product-card-glow"></div>
-        <div class="product-num">01</div>
-        <h3>Matte Clay</h3>
-        <p>A high-hold, low-shine clay for textured, natural-looking styles. Perfect for crops, fringes, and messy styles. Water-soluble, easy to wash out, and buildable coverage.</p>
-        <div style="margin-top:20px; font-family:var(--font-heading); font-size:1.8rem; color:var(--gold);">$28</div>
-      </div>
-      <div class="product-card">
-        <div class="product-card-glow"></div>
-        <div class="product-num">02</div>
-        <h3>Strong Pomade</h3>
-        <p>Medium-high hold with a natural sheen. The go-to product for slicked back styles, quiffs, and defined parted looks. Flexible enough for restyling throughout the day.</p>
-        <div style="margin-top:20px; font-family:var(--font-heading); font-size:1.8rem; color:var(--gold);">$28</div>
-      </div>
-      <div class="product-card">
-        <div class="product-card-glow"></div>
-        <div class="product-num">03</div>
-        <h3>Sea Salt Spray</h3>
-        <p>Adds natural texture, volume, and a lived-in wave to any hair type. Great for enhancing natural movement and creating effortless, beachy texture with minimal effort.</p>
-        <div style="margin-top:20px; font-family:var(--font-heading); font-size:1.8rem; color:var(--gold);">$24</div>
-      </div>
-      <div class="product-card">
-        <div class="product-card-glow"></div>
-        <div class="product-num">04</div>
-        <h3>Texture Powder</h3>
-        <p>A lightweight powder that instantly adds volume and grip to fine or flat hair. Apply at the roots for all-day lift with zero residue and a completely matte, natural finish.</p>
-        <div style="margin-top:20px; font-family:var(--font-heading); font-size:1.8rem; color:var(--gold);">$26</div>
-      </div>
-      <div class="product-card">
-        <div class="product-card-glow"></div>
-        <div class="product-num">05</div>
-        <h3>Beard Balm</h3>
-        <p>Conditions, tames, and shapes your beard. Enriched with natural oils for moisture and hold — keeps your beard soft, styled, and smelling great throughout the day.</p>
-        <div style="margin-top:20px; font-family:var(--font-heading); font-size:1.8rem; color:var(--gold);">$22</div>
-      </div>
-      <div class="product-card">
-        <div class="product-card-glow"></div>
-        <div class="product-num">06</div>
-        <h3>Scalp Serum</h3>
-        <p>A lightweight treatment for scalp health and hair strength. Reduces dryness and flaking while promoting stronger, healthier growth. Use 2–3 times per week for best results.</p>
-        <div style="margin-top:20px; font-family:var(--font-heading); font-size:1.8rem; color:var(--gold);">$35</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Brand story -->
-<section class="section-pad bg-3">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-image-wrap reveal-left" style="display:block;">
-        <div style="background:linear-gradient(135deg,#111,#1e1e1e); height:480px; display:flex; align-items:center; justify-content:center; border:1px solid var(--gold-border); flex-direction:column; gap:24px;">
-          <div style="font-family:var(--font-heading); font-size:3.5rem; color:var(--white); letter-spacing:0.1em;">IN<span style="color:var(--gold);">dustry</span></div>
-          <div style="font-family:var(--font-accent); font-size:0.7rem; letter-spacing:0.3em; color:var(--gray); text-transform:uppercase;">Styling Collection</div>
-          <div style="width:60px; height:1px; background:var(--gold);"></div>
-          <div style="font-family:var(--font-accent); font-size:0.6rem; letter-spacing:0.2em; color:var(--gray-light); text-transform:uppercase;">Made in Canada</div>
-        </div>
-      </div>
-      <div>
-        <span class="label reveal" data-delay="50">The Story</span>
-        <span class="gold-line reveal"></span>
-        <h2 class="reveal" data-delay="100">Made for the Clients We Know</h2>
-        <p class="reveal" data-delay="150">The INdustry Styling Collection was built around one simple idea: give our clients the tools to recreate the look we give them — at home, every day. Every product in our line started as a conversation between our barbers and our clients about what actually works.</p>
-        <p class="reveal" data-delay="200">Our products are made using superior, salon-quality ingredients and manufactured almost entirely in Canada. High quality, easy to use, and specifically designed for men who want their hair to look great with minimal effort.</p>
-        <a href="contact.html" class="btn reveal" data-delay="250"><span>Pick Up In-Salon</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="cta-strip section-pad bg-1">
-  <div class="cta-strip-bg"></div>
-  <div class="container cta-strip-content">
-    <span class="label reveal">Available In-Salon</span>
-    <h2 class="reveal">Ask your barber to recommend the right products for your cut.</h2>
-    <a href="contact.html" class="btn reveal"><span>Book an Appointment</span></a>
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="nav-logo">IN<em>dustry</em> CUTS<small>Men's Grooming</small></div>
-        <p>Niagara's most award-winning men's barbershop. Precision cuts, premium grooming, and an experience that goes beyond the chair.</p>
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/industryhair.ca" target="_blank" class="social-btn"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/industryhair_niagara/" target="_blank" class="social-btn"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@industryhair_niagara" target="_blank" class="social-btn"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </div>
-      <div class="footer-col"><p class="footer-col-title">Navigate</p><ul>
-        <li><a href="about-us.html">About Us</a></li><li><a href="hair-cutting.html">Men's Cuts</a></li>
-        <li><a href="hair-products.html">Hair Products</a></li><li><a href="portfolio.html">Portfolio</a></li>
-      </ul></div>
-      <div class="footer-col"><p class="footer-col-title">Explore</p><ul>
-        <li><a href="industry-cosmetics.html">Styling Collection</a></li><li><a href="contact.html">Contact</a></li>
-      </ul></div>
-      <div class="footer-col"><p class="footer-col-title">Visit Us</p><ul>
-        <li><a href="mailto:info@industryhair.ca">info@industryhair.ca</a></li>
-        <li><a href="tel:9053975888">(905) 397-5888</a></li>
-        <li><a href="#">215 Pelham Rd, St. Catharines</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 INdustry Hair and Esthetics. All rights reserved.</p>
-      <p>Built with precision, just like our cuts.</p>
-    </div>
+  <div class="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-white/5 text-xs text-stone-600 flex justify-between">
+    <p>© 2026 INdustry CUTS. All rights reserved.</p>
+    <p>Crafted with precision.</p>
   </div>
 </footer>
 <div class="lightbox" id="lightbox"><button class="lb-close">×</button><button class="lb-prev">&#8249;</button><img class="lb-img" src="" alt=""/><button class="lb-next">&#8250;</button></div>

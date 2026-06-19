@@ -3,398 +3,210 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>INdustry CUTS | Award-Winning Men's Grooming — St. Catharines</title>
-  <meta name="description" content="Niagara's most award-winning men's barbershop. Precision fades, tapers, beard grooming & more. Founded by award-winning stylists. Book your appointment today."/>
-  <link rel="stylesheet" href="css/main.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
-  <!-- Open Graph / SEO -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="INdustry CUTS | Men's Grooming" />
-  <meta property="og:description" content="Niagara's most award-winning men's barbershop. Precision fades, tapers, beard grooming &amp; more." />
-  <meta property="og:image" content="images/hero-bg.jpg" />
-  <meta name="twitter:card" content="summary_large_image" />
+  <title>INdustry CUTS | Men's Grooming</title>
+  
+  <!-- Tailwind & Fonts -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Outfit"', '"Inter"', 'system-ui', 'sans-serif'],
+          },
+          colors: {
+            stone: {
+              900: '#1c1917',
+              800: '#292524',
+              200: '#e7e5e4',
+              100: '#f5f5f4',
+            },
+            amber: {
+              700: '#b08d57',
+              800: '#927344',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer components {
+      .btn-primary {
+        @apply inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded border border-amber-700 text-amber-700 hover:bg-amber-700 hover:text-zinc-900 transition-colors duration-300 uppercase tracking-[0.2em] text-xs font-semibold;
+      }
+      .nav-link {
+        @apply uppercase tracking-widest text-[0.65rem] font-medium text-stone-400 hover:text-amber-700 transition-colors duration-200;
+      }
+      .section-padding {
+        @apply py-24 md:py-32 px-6 md:px-12 max-w-7xl mx-auto;
+      }
+    }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="bg-zinc-900 text-stone-200 font-sans antialiased overflow-x-hidden">
 
-<!-- Cursor -->
-<div class="cursor"></div>
-<div class="cursor-ring"></div>
-
-<!-- Scroll Progress -->
-<div id="scroll-progress"></div>
-
-<!-- Page Transition -->
-<div class="page-transition"></div>
-
-<!-- Back To Top -->
-<button id="back-to-top" aria-label="Back to top"><i class="fa fa-arrow-up"></i></button>
-
-<!-- ======== NAVIGATION ======== -->
-<nav id="navbar">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      IN<em>dustry</em> CUTS
-      <small>Men's Grooming</small>
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-zinc-900/95 backdrop-blur-md border-b border-white/5 py-5 transition-all">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
+    <a href="index.html" class="font-serif text-2xl font-medium tracking-wide text-stone-100 flex flex-col">
+      INdustry <span class="text-amber-700 italic inline">CUTS</span>
+      <span class="font-sans text-[0.55rem] tracking-[0.3em] text-stone-500 uppercase mt-1 font-semibold">Men's Grooming</span>
     </a>
-
-    <ul class="nav-menu">
-      <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
-      <li class="nav-item"><a href="about-us.html" class="nav-link">About</a></li>
-      <li class="nav-item">
-        <a href="#" class="nav-link">Services <i class="fa fa-chevron-down" style="font-size:0.5rem;margin-left:3px;"></i></a>
-        <div class="nav-dropdown">
-          <a href="hair-cutting.html">Men's Cuts</a>
-          <a href="hair-colouring.html">Colour & Texture</a>
-          <a href="esthetic-services.html">Beard & Grooming</a>
-          <a href="celebrations.html">Celebrations</a>
-        </div>
-      </li>
-      <li class="nav-item"><a href="hair-products.html" class="nav-link">Products</a></li>
-      <li class="nav-item"><a href="industry-cosmetics.html" class="nav-link">Styling</a></li>
-      <li class="nav-item"><a href="portfolio.html" class="nav-link">Portfolio</a></li>
-      <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+    <ul class="hidden md:flex items-center gap-8">
+      <li><a href="index.html" class="nav-link text-stone-100">Home</a></li>
+      <li><a href="about-us.html" class="nav-link">About</a></li>
+      <li><a href="hair-cutting.html" class="nav-link">Services</a></li>
+      <li><a href="portfolio.html" class="nav-link">Portfolio</a></li>
+      <li><a href="contact.html" class="nav-link">Contact</a></li>
     </ul>
-
-    <a href="contact.html" class="nav-cta"><span>Book Now</span></a>
-    <button class="hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="contact.html" class="hidden md:inline-flex btn-primary px-6 py-2">Book Now</a>
   </div>
 </nav>
 
-<!-- Mobile Menu -->
-<div class="mobile-menu">
-  <div class="mobile-menu-links">
-    <a href="index.html">Home</a>
-    <a href="about-us.html">About</a>
-    <a href="hair-cutting.html">Men's Cuts</a>
-    <a href="hair-colouring.html">Colour & Texture</a>
-    <a href="esthetic-services.html">Beard & Grooming</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="contact.html">Contact</a>
+<!-- Hero Section -->
+<section class="relative h-screen min-h-[600px] flex items-center justify-center pt-20">
+  <div class="absolute inset-0 z-0">
+    <img src="images/hero-bg.jpg" alt="Barbershop Hero" class="w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-zinc-900/80"></div>
   </div>
-  <div class="mobile-social">
-    <a href="https://www.facebook.com/industryhair.ca" target="_blank" rel="noopener">Facebook</a>
-    <a href="https://www.instagram.com/industryhair_niagara/" target="_blank" rel="noopener">Instagram</a>
-    <a href="https://www.tiktok.com/@industryhair_niagara" target="_blank" rel="noopener">TikTok</a>
-  </div>
-</div>
-
-<!-- ======== HERO ======== -->
-<section class="hero">
-  <div class="hero-bg" style="background-image: url('images/hero-bg.jpg');"></div>
-  <div class="hero-overlay"></div>
-  <div class="hero-content">
-    <div class="hero-eyebrow"><span class="label">Award-Winning · St. Catharines · Est. 2016</span></div>
-    <h1 class="hero-title">
-      The Art of the
-      <em>Perfect Cut</em>
+  
+  <div class="relative z-10 text-center max-w-4xl px-6">
+    <span class="block font-sans text-xs font-semibold tracking-[0.3em] uppercase text-amber-700 mb-6">Welcome to INdustry</span>
+    <h1 class="font-serif text-5xl md:text-7xl text-stone-100 leading-tight mb-8">
+      Precision Meets <br/><em class="italic text-amber-700">Artistry.</em>
     </h1>
-    <span class="hero-rule"></span>
-    <p class="hero-sub">From classic fades to bold new styles, INdustry CUTS gives every man a look that demands attention.</p>
-    <div class="hero-actions">
-      <a href="contact.html" class="btn"><span>Book an Appointment</span></a>
-      <a href="portfolio.html" class="btn btn-dark"><span>View Portfolio</span></a>
-    </div>
-  </div>
-  <div class="hero-scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-bar"></div>
-  </div>
-</section>
-
-<!-- ======== ABOUT ======== -->
-<section class="section-pad bg-1">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-image-wrap reveal-left">
-        <img src="images/about-interior.jpg" alt="INdustry CUTS interior — premium men's barbershop" loading="lazy"/>
-      </div>
-      <div class="about-text">
-        <p class="label reveal" data-delay="50">About Us</p>
-        <span class="gold-line reveal" data-delay="100"></span>
-        <h2 class="reveal" data-delay="150">Where Precision Meets Craft</h2>
-        <p class="reveal" data-delay="200">INdustry CUTS is Niagara's premier destination for men's grooming and barbershop services. Since 2016, we've built a reputation for excellence — training a team of award-winning barbers who are passionate about their craft.</p>
-        <p class="reveal" data-delay="250">Founded by award-winning stylists <strong style="color:#fff;">Marilyn</strong> and <strong style="color:#fff;">David</strong>, our philosophy is simple: every man who walks through our doors deserves a cut that makes him feel unstoppable. We travel, compete, and teach across Europe and North America to stay ahead of every trend.</p>
-        <a href="about-us.html" class="btn reveal" data-delay="300"><span>Meet the Team</span></a>
-      </div>
+    <p class="text-stone-300 md:text-lg max-w-lg mx-auto mb-10 leading-relaxed font-light">
+      Niagara's premier barbershop. We don't just cut hair—we craft confidence.
+    </p>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="contact.html" class="btn-primary w-full sm:w-auto">Book Appointment</a>
+      <a href="portfolio.html" class="uppercase tracking-[0.2em] text-xs font-semibold text-stone-300 hover:text-amber-700 transition-colors py-3.5 px-8">View Portfolio</a>
     </div>
   </div>
 </section>
 
-<!-- ======== SERVICES ======== -->
-<section class="section-pad bg-2">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="label">What We Do</span>
-      <h2>Our Services</h2>
-      <p>Every service is delivered with precision, care, and a deep passion for the craft of men's grooming.</p>
-    </div>
+<!-- About Snippet -->
+<section class="section-padding grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+  <div class="relative">
+    <img src="images/about-interior.jpg" alt="Shop Interior" class="w-full h-[500px] object-cover rounded-md border border-white/10" />
   </div>
-  <div class="services-grid" data-stagger>
-    <div class="service-card">
-      <img src="images/sections/mens-cut.png" alt="Men's Cuts" class="service-card-img" loading="lazy"/>
-      <div class="service-card-overlay"></div>
-      <div class="service-card-body">
-        <span class="label">Service 01</span>
-        <h3>Men's Cuts</h3>
-        <p class="service-card-desc">From classic cuts to the latest trends — tapers, crops, and textured styles tailored to your face shape and lifestyle.</p>
-        <a href="hair-cutting.html" class="service-card-link">
-          Explore <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="service-card">
-      <img src="images/sections/beard.png" alt="Beard & Grooming" class="service-card-img" loading="lazy" style="object-position: center;"/>
-      <div class="service-card-overlay"></div>
-      <div class="service-card-body">
-        <span class="label">Service 02</span>
-        <h3>Beard & Grooming</h3>
-        <p class="service-card-desc">Professional beard shaping, hot towel shaves, and skin treatments — a complete grooming experience for the modern man.</p>
-        <a href="esthetic-services.html" class="service-card-link">
-          Explore <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="service-card">
-      <img src="images/sections/colour.png" alt="Colour & Texture" class="service-card-img" loading="lazy" style="object-position: top;"/>
-      <div class="service-card-overlay"></div>
-      <div class="service-card-body">
-        <span class="label">Service 03</span>
-        <h3>Colour & Texture</h3>
-        <p class="service-card-desc">Bold highlights, natural tones, and expert colour treatments using premium Goldwell products. Stand out from the crowd.</p>
-        <a href="hair-colouring.html" class="service-card-link">
-          Explore <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M8 3l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-      </div>
-    </div>
+  <div>
+    <span class="block font-sans text-xs font-semibold tracking-[0.3em] uppercase text-amber-700 mb-4">The Standard</span>
+    <h2 class="font-serif text-4xl md:text-5xl text-stone-100 mb-6">More than just a haircut.</h2>
+    <p class="text-stone-400 leading-relaxed mb-8 font-light">
+      We believe grooming is a ritual. With a focus on detail, tailored advice, and an atmosphere built for relaxation, every visit guarantees you walk out looking and feeling your absolute best.
+    </p>
+    <a href="about-us.html" class="text-amber-700 hover:text-stone-200 uppercase tracking-widest text-xs font-medium flex items-center gap-2 transition-colors">
+      Discover Our Story &rarr;
+    </a>
   </div>
 </section>
 
-<!-- ======== AMENITIES ======== -->
-<div class="amenities-strip">
-  <div class="container">
-    <div class="amenities-grid" data-stagger>
-      <div class="amenity-item">
-        <div class="amenity-icon">☕</div>
-        <h5>Espresso Bar</h5>
-        <p>Complimentary espresso & cappuccino for every client.</p>
-      </div>
-      <div class="amenity-item">
-        <div class="amenity-icon">📶</div>
-        <h5>Free Wi-Fi</h5>
-        <p>Stay connected with high-speed wireless and phone charging docks.</p>
-      </div>
-      <div class="amenity-item">
-        <div class="amenity-icon">🏆</div>
-        <h5>Award-Winning</h5>
-        <p>Most decorated salon in Niagara — national & international recognition.</p>
-      </div>
-      <div class="amenity-item">
-        <div class="amenity-icon">✨</div>
-        <h5>Premium Products</h5>
-        <p>Goldwell, Kerasilk & KMS — the products our stylists use every day.</p>
-      </div>
+<!-- Services Grid -->
+<section class="bg-[#12100f] border-y border-white/5">
+  <div class="section-padding">
+    <div class="text-center mb-16">
+      <span class="block font-sans text-xs font-semibold tracking-[0.3em] uppercase text-amber-700 mb-4">What We Do</span>
+      <h2 class="font-serif text-4xl md:text-5xl text-stone-100">Expert Services</h2>
     </div>
-  </div>
-</div>
-
-<!-- ======== PRODUCTS ======== -->
-<section class="section-pad bg-1">
-  <div class="container">
-    <div class="section-header centered reveal">
-      <span class="label">In Our Toolkit</span>
-      <h2>We Sell What We Use</h2>
-      <p>As part of our commitment to quality, every product our barbers use is available for you to take home.</p>
-    </div>
-    <div class="products-grid" data-stagger>
-      <div class="product-card">
-        <div class="product-card-glow"></div>
-        <div class="product-num">01</div>
-        <h3>Goldwell</h3>
-        <p>One of the world's leading professional haircare brands. From colour to finishing, Goldwell delivers flawless results for men who expect the best.</p>
-        <a href="hair-products.html" class="btn btn-sm"><span>View Products</span></a>
-      </div>
-      <div class="product-card">
-        <div class="product-card-glow"></div>
-        <div class="product-num">02</div>
-        <h3>Kerasilk</h3>
-        <p>Premium silk protein-infused treatments and styling solutions. Smoothing, strengthening, and finishing products used by top professionals worldwide.</p>
-        <a href="hair-products.html" class="btn btn-sm"><span>View Products</span></a>
-      </div>
-      <div class="product-card">
-        <div class="product-card-glow"></div>
-        <div class="product-num">03</div>
-        <h3>KMS California</h3>
-        <p>Innovative styling and finishing products built for performance. From texture sprays to holding wax — the tools to make your cut last all day.</p>
-        <a href="hair-products.html" class="btn btn-sm"><span>View Products</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======== AWARDS ======== -->
-<section class="section-pad awards-section bg-2">
-  <div class="container">
-    <div class="section-header reveal">
-      <span class="label">Recognition</span>
-      <h2>Recent Awards</h2>
-      <p>Celebrating years of creativity, innovation, and excellence on both national and international stages.</p>
-    </div>
-    <div class="awards-list">
-      <div class="award-item reveal">
-        <div class="award-year">2026</div>
-        <div class="award-divider"></div>
-        <div class="award-body">
-          <p class="award-org">North American Hairstyling Awards</p>
-          <h3>Salon Team of the Year Finalist</h3>
-          <p>Hair Colorist Finalist — recognized for cutting-edge colour innovation and teamwork excellence.</p>
+    
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <!-- Service 1 -->
+      <a href="hair-cutting.html" class="group relative block h-[450px] rounded-md overflow-hidden border border-white/5">
+        <img src="images/sections/mens-cut.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Men's Cuts" />
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <h3 class="font-serif text-3xl text-stone-100 mb-2">Men's Cuts</h3>
+          <p class="text-stone-400 text-sm font-light">From classic tapers to modern crops.</p>
         </div>
-      </div>
-      <div class="award-item reveal">
-        <div class="award-year">2025</div>
-        <div class="award-divider"></div>
-        <div class="award-body">
-          <p class="award-org">Contessa Canadian Hairstylists Awards</p>
-          <h3>Gold — Master Colourist of the Year</h3>
-          <p>David awarded Gold in the most prestigious Canadian hairstyling awards. Top 5 Salon Team in Canada.</p>
+      </a>
+      
+      <!-- Service 2 -->
+      <a href="esthetic-services.html" class="group relative block h-[450px] rounded-md overflow-hidden border border-white/5">
+        <img src="images/sections/beard.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Beard Grooming" />
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <h3 class="font-serif text-3xl text-stone-100 mb-2">Beard Grooming</h3>
+          <p class="text-stone-400 text-sm font-light">Hot towel shaves and precise beard shaping.</p>
         </div>
-      </div>
-      <div class="award-item reveal">
-        <div class="award-year">2024</div>
-        <div class="award-divider"></div>
-        <div class="award-body">
-          <p class="award-org">Contessa Canadian Hairstylists Awards</p>
-          <h3>Winner — Men's Hair Stylist of the Year</h3>
-          <p>Marilyn takes Gold for Men's Hairstyling. David Finalist — Master Colorist. Salon Team Finalist.</p>
+      </a>
+      
+      <!-- Service 3 -->
+      <a href="hair-colouring.html" class="group relative block h-[450px] rounded-md overflow-hidden border border-white/5">
+        <img src="images/sections/colour.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Colour & Texture" />
+        <div class="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/40 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 right-0 p-8">
+          <h3 class="font-serif text-3xl text-stone-100 mb-2">Colour & Texture</h3>
+          <p class="text-stone-400 text-sm font-light">Grey blending, highlights, and full transformations.</p>
         </div>
-      </div>
-      <div class="award-item reveal">
-        <div class="award-year">2023</div>
-        <div class="award-divider"></div>
-        <div class="award-body">
-          <p class="award-org">KAO Salon Global Experience</p>
-          <h3>Gold — New Talent Colorist + Men's Hairstylist of the Year</h3>
-          <p>Samantha wins Gold for New Talent. Marilyn wins Gold for Men's Hairstylist. Gold — Salon Team of the Year. Bronze — Creative Haircutter (Marilyn).</p>
-        </div>
-      </div>
-      <div class="award-item reveal">
-        <div class="award-year">2018+</div>
-        <div class="award-divider"></div>
-        <div class="award-body">
-          <p class="award-org">International Beauty Image Awards</p>
-          <h3>12 Awards Across Hair & Beauty Excellence</h3>
-          <p>An ongoing streak of international recognition across categories of colour, cut, styling, and team performance.</p>
-        </div>
-      </div>
+      </a>
     </div>
   </div>
 </section>
 
-<!-- ======== TESTIMONIALS ======== -->
-<section class="testimonials-section section-pad bg-3">
-  <div class="container">
-    <div class="section-header centered reveal">
-      <span class="label">Client Stories</span>
-      <h2>What Our Clients Say</h2>
-    </div>
-  </div>
-  <div class="testimonials-track-wrap reveal">
-    <div class="testimonials-track">
-      <div class="testimonial-slide">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>"Literally not one bad thing to say about this place! I left there feeling incredibly good about myself. I would absolutely recommend anyone to check it out. Trust me, you will fall in love!"</blockquote>
-        <p class="testimonial-author">— Katrina K.</p>
-      </div>
-      <div class="testimonial-slide">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>"Not that I am the least bit surprised, but I had to give Marilyn, David, and the entire staff a loud shout-out. From the moment you walk in — top-notch experience... and to top that, you walk out looking the best you can."</blockquote>
-        <p class="testimonial-author">— Volpetta F.</p>
-      </div>
-      <div class="testimonial-slide">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>"Amazing experience! Expectations are always exceeded by the whole team. It's an environment for all ages. Well worth the one-hour drive!"</blockquote>
-        <p class="testimonial-author">— Rose T.</p>
-      </div>
-      <div class="testimonial-slide">
-        <div class="testimonial-stars">★★★★★</div>
-        <blockquote>"How do you get spectacular looking hair? Marilyn and David are who you're looking for. No one has ever made my hair look and feel so great. I guarantee you're going to love them!"</blockquote>
-        <p class="testimonial-author">— Annemarie T.</p>
-      </div>
-    </div>
-    <div class="testimonial-dots"></div>
-  </div>
+<!-- Call to Action -->
+<section class="section-padding text-center max-w-3xl">
+  <h2 class="font-serif text-4xl md:text-5xl text-stone-100 mb-6">Ready for an upgrade?</h2>
+  <p class="text-stone-400 leading-relaxed mb-10 font-light">Skip the line and secure your spot in the chair. Experience grooming at its highest level.</p>
+  <a href="contact.html" class="btn-primary">Book Your Visit</a>
 </section>
 
-<!-- ======== CTA STRIP ======== -->
-<section class="cta-strip section-pad bg-1">
-  <div class="cta-strip-bg"></div>
-  <div class="container cta-strip-content">
-    <span class="label reveal">Ready for a new look?</span>
-    <h2 class="reveal">From fades to the latest styles, INdustry CUTS will give you the edge.</h2>
-    <p class="reveal">Walk in as you are — walk out looking like the best version of yourself.</p>
-    <a href="contact.html" class="btn reveal"><span>Request an Appointment</span></a>
+<footer class="bg-[#12100f] border-t border-white/5 py-20 mt-20">
+  <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
+    <div class="col-span-1 md:col-span-1">
+      <div class="font-serif text-2xl font-medium tracking-wide text-stone-100 mb-4 flex flex-col">
+        INdustry <span class="text-amber-700 italic inline">CUTS</span>
+      </div>
+      <p class="text-stone-400 text-sm leading-relaxed mb-6">Niagara's premier barbershop. Precision cuts, expert grooming, and an authentic experience.</p>
+    </div>
+    
+    <div>
+      <h4 class="font-sans text-[0.6rem] font-semibold tracking-[0.2em] uppercase text-amber-700 mb-6">Navigate</h4>
+      <ul class="space-y-3 text-sm text-stone-400">
+        <li><a href="about-us.html" class="hover:text-stone-200 transition-colors">About Us</a></li>
+        <li><a href="hair-cutting.html" class="hover:text-stone-200 transition-colors">Services</a></li>
+        <li><a href="portfolio.html" class="hover:text-stone-200 transition-colors">Portfolio</a></li>
+        <li><a href="contact.html" class="hover:text-stone-200 transition-colors">Contact</a></li>
+      </ul>
+    </div>
+    
+    <div>
+      <h4 class="font-sans text-[0.6rem] font-semibold tracking-[0.2em] uppercase text-amber-700 mb-6">Visit Us</h4>
+      <ul class="space-y-3 text-sm text-stone-400">
+        <li><a href="mailto:info@industryhair.ca" class="hover:text-stone-200 transition-colors">info@industryhair.ca</a></li>
+        <li><a href="tel:9053975888" class="hover:text-stone-200 transition-colors">(905) 397-5888</a></li>
+        <li>215 Pelham Rd, St. Catharines</li>
+      </ul>
+    </div>
   </div>
-</section>
-
-<!-- ======== FOOTER ======== -->
-<footer>
-  <div class="container">
-    <div class="footer-main">
-      <div class="footer-brand">
-        <div class="nav-logo">IN<em>dustry</em> CUTS<small>Men's Grooming</small></div>
-        <p>Niagara's most award-winning men's barbershop. Precision cuts, premium grooming, and an experience that goes beyond the chair.</p>
-        <div class="footer-socials">
-          <a href="https://www.facebook.com/industryhair.ca" target="_blank" rel="noopener" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/industryhair_niagara/" target="_blank" rel="noopener" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.tiktok.com/@industryhair_niagara" target="_blank" rel="noopener" class="social-btn" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <p class="footer-col-title">Navigate</p>
-        <ul>
-          <li><a href="about-us.html">About Us</a></li>
-          <li><a href="hair-cutting.html">Men's Cuts</a></li>
-          <li><a href="hair-colouring.html">Colour & Texture</a></li>
-          <li><a href="esthetic-services.html">Beard & Grooming</a></li>
-          <li><a href="celebrations.html">Celebrations</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <p class="footer-col-title">Explore</p>
-        <ul>
-          <li><a href="hair-products.html">Hair Products</a></li>
-          <li><a href="industry-cosmetics.html">Styling Collection</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <p class="footer-col-title">Visit Us</p>
-        <ul>
-          <li><a href="mailto:info@industryhair.ca">info@industryhair.ca</a></li>
-          <li><a href="tel:9053975888">(905) 397-5888</a></li>
-          <li><a href="https://maps.google.com/?q=215+Pelham+Rd+St+Catharines" target="_blank" rel="noopener">215 Pelham Rd<br/>St. Catharines, ON</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 INdustry Hair and Esthetics. All rights reserved.</p>
-      <p>Built with precision, just like our cuts.</p>
-    </div>
+  <div class="max-w-7xl mx-auto px-6 md:px-12 mt-16 pt-8 border-t border-white/5 text-xs text-stone-600 flex justify-between">
+    <p>© 2026 INdustry CUTS. All rights reserved.</p>
+    <p>Crafted with precision.</p>
   </div>
 </footer>
 
-<!-- Lightbox (shared, empty on this page) -->
-<div class="lightbox" id="lightbox">
-  <button class="lb-close" aria-label="Close">×</button>
-  <button class="lb-prev" aria-label="Previous">&#8249;</button>
-  <img class="lb-img" src="" alt=""/>
-  <button class="lb-next" aria-label="Next">&#8250;</button>
-</div>
+<script>
+  // Mobile menu toggle logic
+  const btn = document.querySelector('button.md\\:hidden');
+  const menu = document.querySelector('ul.hidden.md\\:flex');
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+    menu.classList.toggle('flex');
+    menu.classList.toggle('flex-col');
+    menu.classList.toggle('absolute');
+    menu.classList.toggle('top-full');
+    menu.classList.toggle('left-0');
+    menu.classList.toggle('right-0');
+    menu.classList.toggle('bg-zinc-900');
+    menu.classList.toggle('p-6');
+    menu.classList.toggle('border-b');
+    menu.classList.toggle('border-white/10');
+  });
+</script>
 
-<script src="js/main.js"></script>
 </body>
 </html>
