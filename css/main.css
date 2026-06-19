@@ -1259,15 +1259,28 @@ footer {
 }
 
 /* =============================================
-   RESPONSIVE
+   RESPONSIVE & MOBILE OPTIMIZATIONS
    ============================================= */
+@media (hover: none) and (pointer: coarse) {
+  /* Disable custom cursor on touch devices */
+  .cursor, .cursor-ring { display: none !important; }
+  
+  /* Disable hover animations that get stuck on tap */
+  .service-card-desc { max-height: 80px; opacity: 1; }
+  .service-card-link { opacity: 1; transform: translateY(0); }
+  .service-card-overlay { background: linear-gradient(to top, rgba(8,8,8,0.97) 15%, rgba(8,8,8,0.35) 100%); }
+  .portfolio-overlay { opacity: 1; background: linear-gradient(to top, rgba(8,8,8,0.85) 0%, transparent 60%); }
+  .portfolio-view { display: none; }
+  .portfolio-caption { transform: translateY(0); }
+}
+
 @media (max-width: 1200px) {
   .about-grid { grid-template-columns: 1fr; gap: 56px; }
   .about-image-wrap { display: none; }
   .footer-main { grid-template-columns: 1fr 1fr; gap: 40px; }
 }
+
 @media (max-width: 992px) {
-  :root { }
   .services-grid { grid-template-columns: 1fr; }
   .service-card-img { height: 380px; }
   .products-grid { grid-template-columns: 1fr; }
@@ -1279,6 +1292,7 @@ footer {
   .contact-grid { grid-template-columns: 1fr; gap: 56px; }
   .amenities-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (max-width: 768px) {
   .nav-menu, .nav-cta { display: none; }
   .hamburger { display: flex; }
@@ -1288,12 +1302,17 @@ footer {
   h1 { font-size: 3rem; }
   h2 { font-size: 2.2rem; }
   .testimonial-slide { padding: 48px 24px; }
-  .hero-actions { flex-direction: column; align-items: center; }
+  .hero-actions { flex-direction: column; width: 100%; gap: 16px; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
   .footer-main { grid-template-columns: 1fr; gap: 40px; }
   .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
   .form-row-2 { grid-template-columns: 1fr; }
   .award-item { grid-template-columns: 80px 1px 1fr; gap: 24px; }
+  
+  /* Fix 100vh issue on mobile Safari */
+  .hero { height: 100svh; min-height: 550px; }
 }
+
 @media (max-width: 480px) {
   .team-grid { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: 1fr; }
@@ -1301,4 +1320,5 @@ footer {
   .award-item { grid-template-columns: 1fr; gap: 8px; }
   .award-divider { display: none; }
   #back-to-top { bottom: 20px; right: 20px; }
+  .btn { padding: 14px 24px; }
 }
