@@ -109,6 +109,18 @@ function initMobileMenu() {
 
 /* === Scroll Reveal (Intersection Observer) === */
 function initScrollReveal() {
+  // Dynamically add reveal class to new Tailwind structure elements
+  const autoRevealSelectors = [
+    'section h1', 'section h2', 'section h3', 'section p', 
+    'section .bg-zinc-800\\/30', 'section img'
+  ];
+  document.querySelectorAll(autoRevealSelectors.join(', ')).forEach(el => {
+    // Don't add if it's already there or it's inside the hero which should show immediately
+    if (!el.classList.contains('reveal') && !el.closest('section.h-screen') && !el.closest('.page-hero') && !el.closest('nav')) {
+      el.classList.add('reveal');
+    }
+  });
+
   const targets = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale, [data-stagger]');
   if (!targets.length) return;
 
